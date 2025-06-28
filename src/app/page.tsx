@@ -1,6 +1,36 @@
+'use client';
+
+import { useState, useEffect, useCallback } from 'react';
 import styles from './page.module.css';
 
+const images = [
+  '/gallery/lattice-1.jpg',
+  '/gallery/lattice-2.jpg',
+  '/gallery/lattice-3.jpg',
+  '/gallery/lattice-4.jpg',
+  '/gallery/lattice-5.jpg',
+]
+
 export default function Home() {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (lightboxIndex === null) return;
+
+    if (e.key === 'Escape') {
+      setLightboxIndex(null);
+    } else if (e.key === 'ArrowRight') {
+      setLightboxIndex((prev) => (prev! + 1) % images.length);
+    } else if (e.key === 'ArrowLeft') {
+      setLightboxIndex((prev) => (prev! - 1 + images.length) % images.length);
+    }
+  }, [lightboxIndex]);
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handleKeyDown]);
+
   return (
     <div>
       <main className={styles.container}>
@@ -23,14 +53,18 @@ export default function Home() {
           </ul>
         </section>
 
-        <section className={styles.section}>
-          <h2>Photo Gallery</h2>
+        <section className={styles.gallerySection}>
+          <h2>Gallery</h2>
           <div className={styles.galleryGrid}>
-            <img src="/gallery/lattice-1.jpg" alt="Custom lattice" title="Custom lattice" />
-            <img src="/gallery/lattice-2.jpg" alt="Custom lattice" title="Custom lattice" />
-            <img src="/gallery/lattice-3.jpg" alt="Custom lattice" title="Custom lattice" />
-            <img src="/gallery/lattice-4.jpg" alt="Custom lattice" title="Custom lattice" />
-            <img src="/gallery/lattice-5.jpg" alt="Custom lattice" title="Custom lattice" />
+            {images.map((src, i) => (
+              <img
+                key={i}
+                src={src}
+                alt={`Gallery image ${i + 1}`}
+                onClick={() => setLightboxIndex(i)}
+                className={styles.galleryImage}
+              />
+            ))}
           </div>
         </section>
       </main>
@@ -38,6 +72,17 @@ export default function Home() {
       <footer className={styles.footer}>
         <p>&copy; {new Date().getFullYear()} Sunnyside Backyard Built Co. All rights reserved.</p>
       </footer>
+
+      {lightboxIndex !== null && (
+        <div className={styles.lightbox} onClick={() => setLightboxIndex(null)}>
+          <img
+            src={images[lightboxIndex]}
+            alt="Full size"
+            className={styles.lightboxImg}
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </div>
   );
 }
