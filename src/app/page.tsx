@@ -2,13 +2,14 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import styles from './page.module.css';
+import Image from 'next/image';
 
 const images = [
-  '/gallery/lattice-1.jpg',
-  '/gallery/lattice-2.jpg',
-  '/gallery/lattice-3.jpg',
-  '/gallery/lattice-4.jpg',
-  '/gallery/lattice-5.jpg',
+  '/gallery/lattice-1.JPG',
+  '/gallery/lattice-2.JPG',
+  '/gallery/lattice-3.JPG',
+  '/gallery/lattice-4.JPG',
+  '/gallery/lattice-5.JPG',
 ]
 
 export default function Home() {
@@ -57,7 +58,7 @@ export default function Home() {
           <h2>Gallery</h2>
           <div className={styles.galleryGrid}>
             {images.map((src, i) => (
-              <img
+              <Image
                 key={i}
                 src={src}
                 alt={`Gallery image ${i + 1}`}
@@ -75,7 +76,7 @@ export default function Home() {
 
       {lightboxIndex !== null && (
         <div className={styles.lightbox} onClick={() => setLightboxIndex(null)}>
-          <img
+          <Image
             src={images[lightboxIndex]}
             alt="Full size"
             className={styles.lightboxImg}
