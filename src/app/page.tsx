@@ -62,6 +62,8 @@ export default function Home() {
                 key={i}
                 src={src}
                 alt={`Gallery image ${i + 1}`}
+                width={250}
+                height={250}
                 onClick={() => setLightboxIndex(i)}
                 className={styles.galleryImage}
               />
@@ -80,6 +82,8 @@ export default function Home() {
             src={images[lightboxIndex]}
             alt="Full size"
             className={styles.lightboxImg}
+            width={250}
+            height={250}
             onClick={(e) => e.stopPropagation()}
           />
         </div>
