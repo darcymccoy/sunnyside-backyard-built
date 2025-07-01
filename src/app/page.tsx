@@ -37,19 +37,20 @@ export default function Home() {
       <main className={styles.container}>
         <header className={styles.header}>
           <h1>Sunnyside Backyard Built Co</h1>
-          <p>Old Ottawa based student handyman offering local and affordable services.<br />Contact Hugh for a free consult:</p>
-          <a href="tel:+1234567890" className={styles.contactButton}>Call Now: (123) 456-7890</a>
-          <p>Email: email@email.com</p>
+          <p>Old Ottawa South based student handyman offering local and affordable services.<br />Contact Hugh for a free consult:</p>
+          <a href="tel:+16134104642" className={styles.contactButton}>Call Now: (631) 410-4642</a>
+          <p>Email: sunnysidebackyardbuiltco@gmail.com</p>
         </header>
 
         <section className={styles.section}>
           <h2>Services</h2>
           <ul className={styles.serviceList}>
-            <li>Painting</li>
-            <li>Landscaping</li>
+            <li>Lattices</li>
+            <li>Planters</li>
             <li>Fences</li>
             <li>Decks</li>
-            <li>Planters</li>
+            <li>Painting</li>
+            <li>Landscaping</li>
             <li>And more!</li>
           </ul>
         </section>
@@ -62,6 +63,8 @@ export default function Home() {
                 key={i}
                 src={src}
                 alt={`Gallery image ${i + 1}`}
+                width={250}
+                height={250}
                 onClick={() => setLightboxIndex(i)}
                 className={styles.galleryImage}
               />
@@ -80,6 +83,8 @@ export default function Home() {
             src={images[lightboxIndex]}
             alt="Full size"
             className={styles.lightboxImg}
+            width={250}
+            height={250}
             onClick={(e) => e.stopPropagation()}
           />
         </div>
