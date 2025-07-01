@@ -12,7 +12,7 @@ npm run dev
 
 This will be hosted at [http://localhost:3000](http://localhost:3000).
 
-To create a production build, run:
+To create a production build:
 
 ```bash
 npm run build
