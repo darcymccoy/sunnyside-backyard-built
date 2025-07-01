@@ -38,8 +38,8 @@ export default function Home() {
         <header className={styles.header}>
           <h1>Sunnyside Backyard Built Co</h1>
           <p>Old Ottawa based student handyman offering local and affordable services.<br />Contact Hugh for a free consult:</p>
-          <a href="tel:+1234567890" className={styles.contactButton}>Call Now: (123) 456-7890</a>
-          <p>Email: email@email.com</p>
+          <a href="tel:+16134104642" className={styles.contactButton}>Call Now: (631) 410-4642</a>
+          <p>Email: sunnysidebackyardbuiltco@gmail.com</p>
         </header>
 
         <section className={styles.section}>
