@@ -37,7 +37,7 @@ export default function Home() {
       <main className={styles.container}>
         <header className={styles.header}>
           <h1>Sunnyside Backyard Built Co</h1>
-          <p>Old Ottawa based student handyman offering local and affordable services.<br />Contact Hugh for a free consult:</p>
+          <p>Old Ottawa South based student handyman offering local and affordable services.<br />Contact Hugh for a free consult:</p>
           <a href="tel:+16134104642" className={styles.contactButton}>Call Now: (631) 410-4642</a>
           <p>Email: sunnysidebackyardbuiltco@gmail.com</p>
         </header>
@@ -45,11 +45,12 @@ export default function Home() {
         <section className={styles.section}>
           <h2>Services</h2>
           <ul className={styles.serviceList}>
-            <li>Painting</li>
-            <li>Landscaping</li>
+            <li>Lattices</li>
+            <li>Planters</li>
             <li>Fences</li>
             <li>Decks</li>
-            <li>Planters</li>
+            <li>Painting</li>
+            <li>Landscaping</li>
             <li>And more!</li>
           </ul>
         </section>
