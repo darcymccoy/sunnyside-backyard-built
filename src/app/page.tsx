@@ -10,6 +10,14 @@ const images = [
   '/gallery/lattice-3.JPG',
   '/gallery/lattice-4.JPG',
   '/gallery/lattice-5.JPG',
+  '/gallery/lattice-6.JPG',
+  '/gallery/deck-1.JPG',
+  '/gallery/deck-2.JPG',
+  '/gallery/deck-3.JPG',
+  '/gallery/gate-1.JPG',
+  '/gallery/landscaping-1.JPG',
+  '/gallery/paver-1.JPG',
+  '/gallery/planter-1.JPG',
 ]
 
 export default function Home() {
