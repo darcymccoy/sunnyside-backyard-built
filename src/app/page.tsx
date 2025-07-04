@@ -63,6 +63,12 @@ export default function Home() {
           </ul>
         </section>
 
+        <section className={styles.section}>
+          <h2>Experience</h2>
+          <p>Hugh has worked as a labourer and apprentice with residential carpentry company Mona-Con. 
+            This is his 2nd summer offering his own expertise and skill.</p>
+        </section>
+
         <section className={styles.gallerySection}>
           <h2>Gallery</h2>
           <div className={styles.galleryGrid}>
