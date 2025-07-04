@@ -22,6 +22,33 @@ const images = [
 
 export default function Home() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [touchEndX, setTouchEndX] = useState<number | null>(null);
+
+  const minSwipeDistance = 50;
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEndX(null);
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX || !touchEndX) return;
+
+    const distance = touchStartX - touchEndX;
+
+    if (Math.abs(distance) < minSwipeDistance) return;
+
+    if (distance > 0) {
+      setLightboxIndex((prev) => (prev! + 1) % images.length);
+    } else {
+      setLightboxIndex((prev) => (prev! - 1 + images.length) % images.length);
+    }
+  };
 
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (lightboxIndex === null) return;
@@ -65,7 +92,7 @@ export default function Home() {
 
         <section className={styles.section}>
           <h2>Experience</h2>
-          <p>Hugh has worked as a labourer and apprentice with residential carpentry company Mona-Con. 
+          <p>Hugh has worked as a labourer and apprentice with residential carpentry company Mona-Con.
             This is his 2nd summer offering his own expertise and skill.</p>
         </section>
 
@@ -92,7 +119,13 @@ export default function Home() {
       </footer>
 
       {lightboxIndex !== null && (
-        <div className={styles.lightbox} onClick={() => setLightboxIndex(null)}>
+        <div
+          className={styles.lightbox}
+          onClick={() => setLightboxIndex(null)}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           <Image
             src={images[lightboxIndex]}
             alt="Full size"
