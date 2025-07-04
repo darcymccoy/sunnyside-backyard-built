@@ -12,13 +12,3 @@ body {
   font-family: Arial, sans-serif;
   background-color: #fafafa;
 }
-
-.layout-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.layout-wrapper > main {
-  flex: 1;
-}
