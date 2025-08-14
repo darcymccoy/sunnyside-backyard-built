@@ -27,6 +27,18 @@ export default function Home() {
 
   const minSwipeDistance = 50;
 
+  const goToNextImage = () => {
+    if (lightboxIndex !== null && lightboxIndex < images.length - 1) {
+      setLightboxIndex(lightboxIndex + 1);
+    }
+  };
+
+  const goToPreviousImage = () => {
+    if (lightboxIndex !== null && lightboxIndex > 0) {
+      setLightboxIndex(lightboxIndex - 1);
+    }
+  };
+
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchEndX(null);
     setTouchStartX(e.targetTouches[0].clientX);
@@ -44,9 +56,9 @@ export default function Home() {
     if (Math.abs(distance) < minSwipeDistance) return;
 
     if (distance > 0) {
-      setLightboxIndex((prev) => (prev! + 1) % images.length);
+      goToNextImage();
     } else {
-      setLightboxIndex((prev) => (prev! - 1 + images.length) % images.length);
+      goToPreviousImage();
     }
   };
 
@@ -56,16 +68,26 @@ export default function Home() {
     if (e.key === 'Escape') {
       setLightboxIndex(null);
     } else if (e.key === 'ArrowRight') {
-      setLightboxIndex((prev) => (prev! + 1) % images.length);
+      goToNextImage();
     } else if (e.key === 'ArrowLeft') {
-      setLightboxIndex((prev) => (prev! - 1 + images.length) % images.length);
+      goToPreviousImage();
     }
   }, [lightboxIndex]);
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [handleKeyDown]);
+
+    if (lightboxIndex !== null) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [handleKeyDown, lightboxIndex]);
 
   return (
     <div>
@@ -126,12 +148,21 @@ export default function Home() {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
+          <button
+            className={styles.closeButton}
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex(null);
+            }}
+          >
+            ×
+          </button>
           <Image
             src={images[lightboxIndex]}
             alt="Full size"
             className={styles.lightboxImg}
-            width={250}
-            height={250}
+            fill
+            style={{ objectFit: 'contain' }}
             onClick={(e) => e.stopPropagation()}
           />
         </div>

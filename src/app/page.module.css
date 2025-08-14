@@ -79,10 +79,6 @@
   transition: transform 0.2s ease;
 }
 
-.galleryGrid img:hover {
-  transform: scale(1.02);
-}
-
 .galleryImage {
   width: 100%;
   height: auto;
@@ -102,14 +98,39 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 1000;
 }
 
 .lightboxImg {
-  width: auto;
-  height: 90%;
+  position: relative !important;
+  width: auto !important;
+  height: auto !important;
   max-width: 90%;
+  max-height: 90%;
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  cursor: default;
+}
+
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  transition: background-color 0.2s;
+}
+
+.closeButton:hover {
+  background: rgba(0, 0, 0, 0.9);
 }
