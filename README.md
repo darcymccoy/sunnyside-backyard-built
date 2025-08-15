@@ -26,10 +26,10 @@ npm run start
 
 ## Learn More
 
-I made this project using Next.js, to learn more check out the following resources:
+I made this project using Next.js, check out the following resources to learn more:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Learn Next.js](https://nextjs.org/learn)
 
 ## Authors
 
