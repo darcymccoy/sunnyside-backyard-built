@@ -13,11 +13,11 @@ const images = [
   '/gallery/lattice-6.JPG',
   '/gallery/deck-1.JPG',
   '/gallery/deck-2.JPG',
-  '/gallery/deck-3.JPG',
   '/gallery/gate-1.JPG',
   '/gallery/landscaping-1.JPG',
   '/gallery/paver-1.JPG',
   '/gallery/planter-1.JPG',
+  '/gallery/deck-3.JPG',
 ]
 
 export default function Home() {
@@ -27,17 +27,17 @@ export default function Home() {
 
   const minSwipeDistance = 50;
 
-  const goToNextImage = () => {
+  const goToNextImage = useCallback(() => {
     if (lightboxIndex !== null && lightboxIndex < images.length - 1) {
       setLightboxIndex(lightboxIndex + 1);
     }
-  };
+  }, [lightboxIndex]);
 
-  const goToPreviousImage = () => {
+  const goToPreviousImage = useCallback(() => {
     if (lightboxIndex !== null && lightboxIndex > 0) {
       setLightboxIndex(lightboxIndex - 1);
     }
-  };
+  }, [lightboxIndex]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchEndX(null);
@@ -72,7 +72,7 @@ export default function Home() {
     } else if (e.key === 'ArrowLeft') {
       goToPreviousImage();
     }
-  }, [lightboxIndex]);
+  }, [lightboxIndex, goToNextImage, goToPreviousImage]);
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
