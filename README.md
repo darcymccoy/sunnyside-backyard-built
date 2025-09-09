@@ -1,6 +1,6 @@
 # [Sunnyside Backyard Built Webpage](https://sunnyside-backyard-built.vercel.app/)
 
-A lightweight website for a friend's small business.
+A lightweight website for a local small business.
 
 ## Getting Started
 
