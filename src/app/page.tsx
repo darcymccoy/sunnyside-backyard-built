@@ -5,19 +5,19 @@ import styles from './page.module.css';
 import Image from 'next/image';
 
 const images = [
-  '/gallery/lattice-1.JPG',
-  '/gallery/lattice-2.JPG',
-  '/gallery/lattice-3.JPG',
-  '/gallery/lattice-4.JPG',
-  '/gallery/lattice-5.JPG',
-  '/gallery/lattice-6.JPG',
-  '/gallery/deck-1.JPG',
-  '/gallery/deck-2.JPG',
-  '/gallery/landscaping-1.JPG',
-  '/gallery/gate-1.JPG',
-  '/gallery/paver-1.JPG',
-  '/gallery/planter-1.JPG',
-  '/gallery/deck-3.JPG',
+  '/gallery/lattice-1.jpg',
+  '/gallery/lattice-2.jpg',
+  '/gallery/lattice-3.jpg',
+  '/gallery/lattice-4.jpg',
+  '/gallery/lattice-5.jpg',
+  '/gallery/lattice-6.jpg',
+  '/gallery/deck-1.jpg',
+  '/gallery/deck-2.jpg',
+  '/gallery/landscaping-1.jpg',
+  '/gallery/gate-1.jpg',
+  '/gallery/paver-1.jpg',
+  '/gallery/planter-1.jpg',
+  '/gallery/deck-3.jpg',
 ]
 
 export default function Home() {

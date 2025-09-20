@@ -4,23 +4,31 @@ A lightweight website for a local small business.
 
 ## Getting Started
 
+Clone the repository:
+
+```sh
+git clone https://github.com/darcymccoy/sunnyside-backyard-built.git
+```
+
 To run the development version locally:
 
-```bash
+```sh
 npm run dev
 ```
 
 This will be hosted at [http://localhost:3000](http://localhost:3000).
 
+### Production Build
+
 To create a production build:
 
-```bash
+```sh
 npm run build
 ```
 
 And to run that production build:
 
-```bash
+```sh
 npm run start
 ```
 
@@ -30,7 +38,3 @@ I made this project using Next.js, check out the following resources to learn mo
 
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Learn Next.js](https://nextjs.org/learn)
-
-## Authors
-
-- [darcymccoy](https://github.com/darcymccoy)
