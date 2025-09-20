@@ -3,8 +3,8 @@ on:
   pull_request:
     # See https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpaths for reference.
     paths:
-      - '**.JPG'
       - '**.jpg'
+      - '**.jpeg'
       - '**.png'
   workflow_dispatch:
 jobs:
