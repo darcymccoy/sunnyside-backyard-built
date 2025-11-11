@@ -10,6 +10,12 @@ Clone the repository:
 git clone https://github.com/darcymccoy/sunnyside-backyard-built.git
 ```
 
+Install the dependencies:
+
+```sh
+npm install
+```
+
 To run the development version locally:
 
 ```sh
