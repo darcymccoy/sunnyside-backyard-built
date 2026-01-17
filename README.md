@@ -1,4 +1,4 @@
-# [Sunnyside Backyard Built Webpage](https://sunnyside-backyard-built.vercel.app/)
+# [Sunnyside Backyard Built Website](https://sunnyside-backyard-built.vercel.app/)
 
 A lightweight website for a local small business.
 
